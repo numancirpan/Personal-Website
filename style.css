@@ -1,0 +1,416 @@
+/* Temel Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+    color: white;
+}
+.hamburger {
+  display: none; /* Masaüstünde kesinlikle gizle */
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+  padding: 10px; /* Dokunmatik alanı genişlet */
+}
+
+.hamburger .line {
+  width: 25px;
+  height: 3px;
+  background: white;
+  transition: transform 0.3s, opacity 0.3s;
+}
+body {
+    line-height: 1.6;
+    color: #1A0A2E;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* Menü */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 1rem;
+    z-index: 1000;
+    background: rgba(26, 10, 46, 0.9); /* #1A0A2E with opacity */
+    backdrop-filter: blur(10px); /* Modern cam efekti */
+    border-bottom: 1px solid rgba(92, 26, 26, 0.3); /* #5C1A1A ile ince çizgi */
+    font-size: large;
+    font-weight: bolder;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    margin: 0 1rem;
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+    font-size: larger;
+    color: #5C1A1A;
+    text-shadow: 0 0 8px rgba(92, 26, 26, 0.7); /* Kırmızımsı glow */
+}
+
+::-webkit-scrollbar{
+    background: #1A0A2E;
+    width: 6px;
+
+}
+::-webkit-scrollbar-thumb{
+    background:#5C1A1A;  
+    border-radius: 3px;
+}
+/* Bölümler */
+.myself, .about, .employment, .internship, .certificate, .project-1, .project-2, .project-3, .project-4 {
+    background: rgba(39, 15, 54, 0.85);
+    border: 1px solid rgba(92, 26, 26, 0.4);
+    box-shadow: 0 4px 20px rgba(26, 10, 46, 0.6);
+    backdrop-filter: blur(8px);
+    transition: all 0.4s ease;
+}
+
+.myself:hover, .about:hover, .employment:hover, .internship:hover, .certificate:hover, .project-1:hover, .project-2:hover, .project-3:hover, .project-4:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(92, 26, 26, 0.4);
+    border-color: rgba(92, 26, 26, 0.7);
+}
+.myself{
+    line-height: 2.2;
+    position:absolute;
+    top: 15%;
+    left: 15%;
+    text-align: center;
+    padding: 2rem;
+    border-radius: 10px;
+    transform: scale(1.05);
+}
+.about {
+    font-size: larger;
+    text-align: left;
+    position:absolute;
+    left: 50%;
+    right: 15%;
+    top: 30%;
+    max-width: 1000px;
+    padding: 2rem;
+    border-radius: 10px;
+    line-height: 1.6;
+    transform: scale(1.05);
+
+}
+.internship {
+    font-size: large;
+    text-align: left;
+    position:absolute;
+    left: 2%;
+    right: 52%;
+    top: 10%;
+    max-width: 1000px;
+    padding: 2rem;
+    border-radius: 10px;
+    line-height: 1.8;
+    
+}
+.employment {
+    font-size: large;
+    text-align: left;
+    position:absolute;
+    left: 52%;
+    right: 2%;
+    top: 10%;
+    max-width: 1000px;
+    padding: 2rem;
+    border-radius: 10px;
+    line-height: 1.8;
+}
+.certificate {
+    font-size: large;
+    text-align: left;
+    position:absolute;
+    top: 55%;
+    width: 700px;
+    padding: 2rem;
+    border-radius: 10px;
+    line-height: 2.2;
+}
+.project-1 {
+    font-size: large;
+    text-align: left;
+    position:absolute;
+    top: 10%;
+    left:1%;
+    padding: 2rem;
+    border-radius: 10px;
+    line-height: 2.2;
+}
+.project-2 {
+    font-size: large;
+    text-align: left;
+    position:absolute;
+    top: 10%;
+    right: 34%;
+    padding: 2rem;
+    border-radius: 10px;
+    line-height: 2.2;
+}
+.project-3 {
+    font-size: large;
+    text-align: left;
+    position:absolute;
+    top: 10%;
+    right: 1%;
+    padding: 2rem;
+    border-radius: 10px;
+    line-height: 2.2;
+}
+.project-4 {
+    font-size: large;
+    text-align: left;
+    position:absolute;
+    top: 55%;
+    left: 1%;
+    padding: 2rem;
+    border-radius: 10px;
+    line-height: 2.2;
+}
+.cargo-image, .mvc-image, .forms-image, .vehicle-image {
+    width: 450px;
+    height: 220px;
+    border-radius: 10px;
+    margin-bottom:auto;
+}
+
+.scroll-down {
+    position: absolute;
+    bottom: 10%;
+    right: 20%;
+    font-size: 2rem;
+    width: 90%;
+    color: white !important; /* Diğer renk tanımlarını override etmek için */
+    text-align: right; /* Metni sağa hizala */
+    margin: 0; /* Varsayılan margin'leri sıfırla */
+    padding: 0; /* Varsayılan padding'leri sıfırla */
+    z-index: 100; /* Diğer elementlerin üzerinde görünmesini sağla */
+}
+.section {
+    min-height: 100vh;
+    padding: 4rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    width: 100%;
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    background-size: 200% 200%;
+    animation: gradientFlow 5s ease infinite;
+}
+@keyframes gradientFlow {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 0% 100%; }
+    100% { background-position: 0% 0%; }
+}
+#home {
+    background: linear-gradient(135deg, #000000, #2E0854, #5C1A1A);
+    background-size: 100% 200%;
+    background-repeat: no-repeat;
+    animation: gradientFlow 5s ease infinite;
+}
+#about {
+    background: linear-gradient(135deg, #5C1A1A, #3A1A5C, #1A1A1A);
+    background-size: 100% 200%;
+    background-repeat: no-repeat;
+    animation: gradientFlow 5s ease infinite;
+}
+#projects {  background: linear-gradient(135deg, #000000, #2E0854, #5C1A1A);
+    background-size: 100% 200%;
+    background-repeat: no-repeat;
+    animation: gradientFlow 5s ease infinite;}
+
+/* Scroll down indicator */
+.scroll-down {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    animation: bounce 2s infinite;
+    color: #5C1A1A;
+}
+/* Projeler */
+.project {
+    background: #ecf0f1;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 5px;
+    transition: transform 0.3s;
+}
+.project:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+/* Ana Sayfa */
+.profile-photo {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid white;
+    margin-bottom: 1rem;
+}
+.icons {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+/* İletişim */
+#contact a {
+    color: #f1c40f;
+    text-decoration: none;
+}
+/* Mobil cihazlar için (max-width: 768px) */
+@media (max-width: 768px) {
+  /* Tüm bölümlerin mutlak konumunu kaldır ve blok düzenine geç */
+  .myself, 
+  .about {
+    position: static !important;
+    width: 80% !important; /* Mobilde daha geniş alan kaplasın */
+    margin: 20px auto !important; /* Üst-alt boşluk + otomatik merkezleme */
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    transform: none !important;
+    text-align: center !important; /* İçerik merkezleme */
+  }
+
+  /* Profil fotoğrafını küçült */
+  .myself .profile-photo {
+    width: 150px !important;
+    height: 150px !important;
+  }
+
+  /* About metnini sola hizala (okunabilirlik için) */
+  .about p {
+    padding: 0 10px !important;
+    font-size:medium;
+  }
+
+  .internship, 
+  .employment, 
+  .certificate
+  {
+    position: static !important; /* Varsayılan akışa dön */
+    width: 90% !important;
+    margin: 20px auto !important; /* Üst-alt boşluk + otomatik yatay hizalama */
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    transform: none !important;
+    font-size: medium;
+  }
+  .project-1, 
+  .project-2, 
+  .project-3, 
+  .project-4 {
+    position: static !important; /* Varsayılan akışa dön */
+    width: 90% !important;
+    margin: 20px auto !important; /* Üst-alt boşluk + otomatik yatay hizalama */
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    transform: none !important;
+    font-size: medium;
+  }
+  .container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Div'ler arası sabit boşluk */
+  }
+  .scroll-down{
+    display: none !important; /* Mobilde gizle */
+  }
+
+  /* Grid düzenini tek sütuna dönüştür */
+  .internship > div,
+  .employment > div,
+  .certificate > div {
+    grid-template-columns: 1fr !important; /* Tek sütun */
+  }
+
+  /* Deneyim bilgilerinin sola kaymasını düzelt */
+  .experience-info {
+    left: 0 !important;
+    margin-top: 10px;
+  }
+
+  /* Proje resimlerinin boyutunu küçült */
+  .cargo-image, 
+  .mvc-image, 
+  .forms-image, 
+  .vehicle-image {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  /* Scroll-down okunu merkeze al */
+  .scroll-down {
+    position: static !important;
+    text-align: center !important;
+    margin: 20px auto !important;
+    transform: none !important;
+  }
+
+  /* Menüyü dikey hale getir */
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+   .hamburger {
+    display: flex; /* Mobilde görünür yap */
+    z-index: 1001; /* Menünün üstünde olacak */
+  }
+
+  /* Menüyü ekran dışında sakla */
+  .nav-links {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 70%; /* Yan menü genişliği */
+    height: 100vh;
+    background: rgba(26, 10, 46, 0.98);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    transition: left 0.5s ease;
+    z-index: 1000;
+    padding-top: 70px; /* Navbar yüksekliği kadar boşluk */
+  }
+
+  /* Menü açıkken */
+  .nav-links.active {
+    left: 0;
+  }
+
+  /* Hamburger -> Çarpı animasyonu */
+  .hamburger.active .line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .hamburger.active .line:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active .line:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+}
