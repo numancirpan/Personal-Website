@@ -6,6 +6,10 @@
     font-family: 'Arial', sans-serif;
     color: white;
 }
+:root {
+            --primary: white;
+            --secondary: #5C1A1A;
+        }
 .hamburger {
   display: none; /* Masaüstünde kesinlikle gizle */
   cursor: pointer;
@@ -28,18 +32,26 @@ body {
 }
 
 /* Menü */
-nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    padding: 1rem;
-    z-index: 1000;
-    background: rgba(26, 10, 46, 0.9); /* #1A0A2E with opacity */
-    backdrop-filter: blur(10px); /* Modern cam efekti */
-    border-bottom: 1px solid rgba(92, 26, 26, 0.3); /* #5C1A1A ile ince çizgi */
-    font-size: large;
-    font-weight: bolder;
-}
+ nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem;
+            z-index: 1000;
+            background: rgba(26, 10, 46, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(92, 26, 26, 0.3);
+            font-size: large;
+            font-weight: bolder;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+        nav.hidden {
+            transform: translateY(-100%);
+        }
+        nav.scrolled {
+            background: rgba(26, 10, 46, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
 
 nav ul {
     display: flex;
@@ -63,12 +75,12 @@ nav ul li a:hover {
 
 ::-webkit-scrollbar{
     background: #1A0A2E;
-    width: 6px;
+    width: 9px;
 
 }
 ::-webkit-scrollbar-thumb{
-    background:#5C1A1A;  
-    border-radius: 3px;
+    background:white;  
+    border-radius: 8px;
 }
 /* Bölümler */
 .myself, .about, .employment, .internship, .certificate, .project-1, .project-2, .project-3, .project-4 {
@@ -108,8 +120,8 @@ nav ul li a:hover {
     transform: scale(1.05);
 
 }
+
 .internship {
-    font-size: large;
     text-align: left;
     position:absolute;
     left: 2%;
@@ -122,7 +134,6 @@ nav ul li a:hover {
     
 }
 .employment {
-    font-size: large;
     text-align: left;
     position:absolute;
     left: 52%;
@@ -133,75 +144,30 @@ nav ul li a:hover {
     border-radius: 10px;
     line-height: 1.8;
 }
+.employment .experience-info .company {
+    font-size: 0.9rem; /* veya small */
+}
+.employment .experience-info .description {
+    font-size: 0.8rem; /* veya smaller */
+}
+.internship .experience-info .company {
+    font-size: 0.9rem; /* veya small */
+}
+.internship .experience-info .description {
+    font-size: 0.8rem; /* veya smaller */
+}
+
 .certificate {
-    font-size: large;
     text-align: left;
     position:absolute;
     top: 55%;
+    left:30%;
     width: 700px;
     padding: 2rem;
     border-radius: 10px;
     line-height: 2.2;
 }
-.project-1 {
-    font-size: large;
-    text-align: left;
-    position:absolute;
-    top: 10%;
-    left:1%;
-    padding: 2rem;
-    border-radius: 10px;
-    line-height: 2.2;
-}
-.project-2 {
-    font-size: large;
-    text-align: left;
-    position:absolute;
-    top: 10%;
-    right: 34%;
-    padding: 2rem;
-    border-radius: 10px;
-    line-height: 2.2;
-}
-.project-3 {
-    font-size: large;
-    text-align: left;
-    position:absolute;
-    top: 10%;
-    right: 1%;
-    padding: 2rem;
-    border-radius: 10px;
-    line-height: 2.2;
-}
-.project-4 {
-    font-size: large;
-    text-align: left;
-    position:absolute;
-    top: 55%;
-    left: 1%;
-    padding: 2rem;
-    border-radius: 10px;
-    line-height: 2.2;
-}
-.cargo-image, .mvc-image, .forms-image, .vehicle-image {
-    width: 450px;
-    height: 220px;
-    border-radius: 10px;
-    margin-bottom:auto;
-}
 
-.scroll-down {
-    position: absolute;
-    bottom: 10%;
-    right: 20%;
-    font-size: 2rem;
-    width: 90%;
-    color: white !important; /* Diğer renk tanımlarını override etmek için */
-    text-align: right; /* Metni sağa hizala */
-    margin: 0; /* Varsayılan margin'leri sıfırla */
-    padding: 0; /* Varsayılan padding'leri sıfırla */
-    z-index: 100; /* Diğer elementlerin üzerinde görünmesini sağla */
-}
 .section {
     min-height: 100vh;
     padding: 4rem 2rem;
@@ -279,13 +245,13 @@ nav ul li a:hover {
     color: #f1c40f;
     text-decoration: none;
 }
-/* Mobil cihazlar için (max-width: 768px) */
-@media (max-width: 768px) {
+/* Mobil cihazlar için (max-width: 1150px) */
+@media (max-width: 1150px) {
   /* Tüm bölümlerin mutlak konumunu kaldır ve blok düzenine geç */
   .myself, 
   .about {
     position: static !important;
-    width: 80% !important; /* Mobilde daha geniş alan kaplasın */
+    width: 100% !important; /* Mobilde daha geniş alan kaplasın */
     margin: 20px auto !important; /* Üst-alt boşluk + otomatik merkezleme */
     left: auto !important;
     right: auto !important;
@@ -300,6 +266,7 @@ nav ul li a:hover {
     height: 150px !important;
   }
 
+
   /* About metnini sola hizala (okunabilirlik için) */
   .about p {
     padding: 0 10px !important;
@@ -311,31 +278,19 @@ nav ul li a:hover {
   .certificate
   {
     position: static !important; /* Varsayılan akışa dön */
-    width: 90% !important;
+    width: 100% !important;
     margin: 20px auto !important; /* Üst-alt boşluk + otomatik yatay hizalama */
-    left: auto !important;
-    right: auto !important;
+    left: 5% !important;
+    right: 5% !important;
     top: auto !important;
     transform: none !important;
-    font-size: medium;
+    font-size: small;
   }
-  .project-1, 
-  .project-2, 
-  .project-3, 
-  .project-4 {
-    position: static !important; /* Varsayılan akışa dön */
-    width: 90% !important;
-    margin: 20px auto !important; /* Üst-alt boşluk + otomatik yatay hizalama */
-    left: auto !important;
-    right: auto !important;
-    top: auto !important;
-    transform: none !important;
-    font-size: medium;
-  }
+
   .container{
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Div'ler arası sabit boşluk */
+    gap: 0px; /* Div'ler arası sabit boşluk */
   }
   .scroll-down{
     display: none !important; /* Mobilde gizle */
@@ -352,23 +307,6 @@ nav ul li a:hover {
   .experience-info {
     left: 0 !important;
     margin-top: 10px;
-  }
-
-  /* Proje resimlerinin boyutunu küçült */
-  .cargo-image, 
-  .mvc-image, 
-  .forms-image, 
-  .vehicle-image {
-    width: 100% !important;
-    height: auto !important;
-  }
-
-  /* Scroll-down okunu merkeze al */
-  .scroll-down {
-    position: static !important;
-    text-align: center !important;
-    margin: 20px auto !important;
-    transform: none !important;
   }
 
   /* Menüyü dikey hale getir */
@@ -413,4 +351,301 @@ nav ul li a:hover {
   .hamburger.active .line:nth-child(3) {
     transform: rotate(-45deg) translate(5px, -5px);
   }
+/* popup */
+  .modal-arrow {
+    position: absolute;
+    background: rgba(0,0,0,0.5);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .modal-prev {
+    left: 10px;
+    margin-right: 0;
+  }
+  
+  .modal-next {
+    right: 10px;
+    margin-left: 0;
+  }
+   .project-menu {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 10px !important;
+  }
+  
+  .project-menu > div {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+   .photo-viewer {
+    width: 100% !important;
+    padding: 0 10px !important;
+  }
+  
+  .main-image-container {
+    width: 100% !important;
+    max-width: 95vw !important;
+  }
+  
+  .thumbnails {
+    max-width: 100% !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+  }
+  
+  .nav-arrow {
+    width: 40px !important;
+    height: 40px !important;
+    font-size: 1rem !important;
+  }
+  
+  .modal-arrow {
+    position: static !important;
+    margin: 0 10px !important;
+  }
+  
+  .modal-nav {
+    flex-direction: column;
+  }
 }
+
+
+.project-menu {
+  
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            padding: 20px;
+            flex-wrap: wrap;
+            padding: 2rem;
+            border-radius: 10px;
+            transform: scale(1.05);
+            backdrop-filter: blur(10px); /* Modern cam efekti */
+            border-bottom: 1px solid rgba(92, 26, 26, 0.3); /* #5C1A1A ile ince çizgi */
+        }
+        
+        .project-tab {
+            padding: 12px 25px;
+            border-radius: 30px;
+            background: var(--light);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            border: 2px solid #5C1A1A;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2); 
+        }       
+        .project-tab:hover {
+            border-color: var(--primary);
+        }        
+        .project-tab.active {
+            background: var(--secondary);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        /* Fotoğraf Görüntüleyici */
+.photo-viewer {
+    background: transparent;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 10px;
+    position: relative;
+}
+
+.main-image-container {
+  position:  relative;
+    width: min(900px, 80vw);
+    overflow :auto;
+    display: flex; /* İçeriği merkezlemek için */
+    justify-content: center;
+    align-items: center;
+}
+
+.main-image {
+    max-width: 100%; /* Resmin container'ı aşmamasını sağlar */
+    object-fit: contain; /* Orijinal oranları korur */
+    opacity: 0;
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    transform: scale(0.95);
+}
+
+.main-image.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+
+/* Diğer stiller aynı kalabilir */
+        
+        /* Navigasyon Okları */
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.6);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s;
+        }
+        
+        .nav-arrow:hover {
+            background: var(--secondary);
+        }
+        
+        .arrow-left {
+            left: 20px;
+        }
+        
+        .arrow-right {
+            right: 20px;
+        }
+        
+        /* Küçük Resimler */
+        .thumbnails {
+            display:flex;
+            gap: 15px;
+            margin-top: 30px;
+            padding: 10px;
+            overflow-x: auto;
+            max-width: 90%;
+        }
+        
+        .thumbnail {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 5px;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+        
+        .thumbnail:hover {
+            opacity: 1;
+            border-color: var(--primary);
+        }
+        
+        .thumbnail.active {
+            opacity: 1;
+            border-color: var(--secondary);
+            transform: scale(1.1);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-image-container {
+                width: 95%;
+                height: 50vh;
+            }
+            
+            .nav-arrow {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .project-tab {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+        }
+        /* popup */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  padding-top: 50px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  overflow: auto;
+  align-items: center; /* Dikeyde ortala */
+  justify-content: center; /* Yatayda ortala */
+  flex-direction: column; /* İçeriği dikey sırala */
+}
+.modal-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.modal-arrow {
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0 20px;
+  user-select: none;
+  transition: all 0.3s;
+  z-index: 2;
+  
+}
+
+.modal-arrow:hover {
+  color: #5C1A1A;
+  transform: scale(1.2);
+}
+
+.modal-prev {
+  margin-right: -60px; /* Okun resim üzerine binmesi için */
+  
+}
+
+.modal-next {
+  margin-left: -60px; /* Okun resim üzerine binmesi için */
+}
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 80vh;
+  animation-name: zoom;
+  animation-duration: 0.3s;
+  
+}
+
+@keyframes zoom {
+  from {transform: scale(0.5);}
+  to {transform: scale(1);}
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #5C1A1A;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Küçük resimlere tıklanabilir özellik ekle */
+.thumbnail, .main-image {
+  cursor: pointer;
+}
+
+

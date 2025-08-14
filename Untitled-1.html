@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proje Fotoğraf Görüntüleyici</title>
+    <style>
+        :root {
+            --primary: #2E0854;
+            --secondary: #5C1A1A;
+            --light: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            background-color: var(--light);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+      
+        /* Proje Seçim Menüsü */
+        .project-menu {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            padding: 20px;
+            background: white;
+            flex-wrap: wrap;
+        }
+        
+        .project-tab {
+            padding: 12px 25px;
+            border-radius: 30px;
+            background: var(--light);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            border: 2px solid transparent;
+        }
+        
+        .project-tab:hover {
+            border-color: var(--primary);
+        }
+        
+        .project-tab.active {
+            background: var(--secondary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        /* Fotoğraf Görüntüleyici */
+        .photo-viewer {
+            flex-grow: 1;
+            background: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px 20px;
+            position: relative;
+        }
+        
+        .main-image-container {
+            width: 80%;
+            max-width: 800px;
+            height: 60vh;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            background: black;
+        }
+        
+        .main-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            position: absolute;
+            opacity: 0;
+            transition: opacity 0.8s ease, transform 0.8s ease;
+            transform: scale(0.95);
+        }
+        
+        .main-image.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        /* Navigasyon Okları */
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.6);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s;
+        }
+        
+        .nav-arrow:hover {
+            background: var(--secondary);
+        }
+        
+        .arrow-left {
+            left: 20px;
+        }
+        
+        .arrow-right {
+            right: 20px;
+        }
+        
+        /* Küçük Resimler */
+        .thumbnails {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            padding: 10px;
+            overflow-x: auto;
+            max-width: 90%;
+        }
+        
+        .thumbnail {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 5px;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+        
+        .thumbnail:hover {
+            opacity: 1;
+            border-color: var(--primary);
+        }
+        
+        .thumbnail.active {
+            opacity: 1;
+            border-color: var(--secondary);
+            transform: scale(1.1);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-image-container {
+                width: 95%;
+                height: 50vh;
+            }
+            
+            .nav-arrow {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .project-tab {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    
+
+    <script>
+        // Proje verileri
+        const projects = {
+            'inventory-mvc': ['mvc1.jpg', 'mvc2.jpg', 'mvc3.jpg'],
+            'inventory-forms': ['forms1.jpg', 'forms2.jpg', 'forms3.jpg'],
+            'cargo-tracking': ['cargo1.jpg', 'cargo2.jpg'],
+            'vehicle-management': ['vehicle1.jpg', 'vehicle2.jpg', 'vehicle3.jpg']
+        };
+        
+        // DOM Elementleri
+        const mainImage = document.getElementById('mainImage');
+        const thumbnailsContainer = document.getElementById('thumbnails');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const projectTabs = document.querySelectorAll('.project-tab');
+        
+        // Galeri durumu
+        let currentProject = 'inventory-mvc';
+        let currentImageIndex = 0;
+        let images = [];
+        
+        // Proje sekmesine tıklandığında
+        projectTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                projectTabs.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                currentProject = this.dataset.project;
+                currentImageIndex = 0;
+                loadProject(currentProject);
+            });
+        });
+        
+        // Proje yükle
+        function loadProject(project) {
+            images = projects[project];
+            updateGallery();
+        }
+        
+        // Galeriyi güncelle
+        function updateGallery() {
+            // Ana resmi güncelle (animasyonla)
+            const imgPath = `images/${currentProject}/${images[currentImageIndex]}`;
+            
+            // Yeni resim yüklenmeden önce animasyon
+            mainImage.classList.remove('active');
+            
+            setTimeout(() => {
+                mainImage.src = imgPath;
+                mainImage.classList.add('active');
+            }, 300);
+            
+            // Küçük resimleri güncelle
+            thumbnailsContainer.innerHTML = '';
+            images.forEach((img, index) => {
+                const thumbnail = document.createElement('img');
+                thumbnail.src = `images/${currentProject}/${img}`;
+                thumbnail.classList.add('thumbnail');
+                if (index === currentImageIndex) {
+                    thumbnail.classList.add('active');
+                }
+                thumbnail.addEventListener('click', () => {
+                    currentImageIndex = index;
+                    updateGallery();
+                });
+                thumbnailsContainer.appendChild(thumbnail);
+            });
+        }
+        
+        // Olay dinleyicileri
+        prevBtn.addEventListener('click', () => {
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            updateGallery();
+        });
+        
+        nextBtn.addEventListener('click', () => {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            updateGallery();
+        });
+        
+        // Klavye kontrolleri
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                prevBtn.click();
+            } else if (e.key === 'ArrowRight') {
+                nextBtn.click();
+            }
+        });
+        
+        // Sayfa yüklendiğinde ilk projeyi yükle
+        window.addEventListener('DOMContentLoaded', () => {
+            loadProject(currentProject);
+        });
+    </script>
+</body>
+</html>
