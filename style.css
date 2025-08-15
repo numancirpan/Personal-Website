@@ -10,6 +10,8 @@
             --primary: white;
             --secondary: #5C1A1A;
         }
+
+
 .hamburger {
   display: none; /* Masaüstünde kesinlikle gizle */
   cursor: pointer;
@@ -30,7 +32,31 @@ body {
     overflow-x: hidden;
     scroll-behavior: smooth;
 }
+/* Navbar'daki dil butonu için stil */
+.nav-links .language-toggle button {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: white;
+  border-radius: 20px;
+  padding: 5px 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
 
+.nav-links .language-toggle button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: white;
+}
+
+.flag-icon {
+  width: 24px;
+  height: 16px;
+  border-radius: 2px;
+  object-fit: cover;
+}
 /* Menü */
  nav {
             position: fixed;
@@ -83,7 +109,7 @@ nav ul li a:hover {
     border-radius: 8px;
 }
 /* Bölümler */
-.myself, .about, .employment, .internship, .certificate, .project-1, .project-2, .project-3, .project-4 {
+.myself, .about, .education, .employment, .internship, .certificate,.references {
     background: rgba(39, 15, 54, 0.85);
     border: 1px solid rgba(92, 26, 26, 0.4);
     box-shadow: 0 4px 20px rgba(26, 10, 46, 0.6);
@@ -91,7 +117,7 @@ nav ul li a:hover {
     transition: all 0.4s ease;
 }
 
-.myself:hover, .about:hover, .employment:hover, .internship:hover, .certificate:hover, .project-1:hover, .project-2:hover, .project-3:hover, .project-4:hover {
+.myself:hover, .about:hover,.education:hover, .employment:hover, .internship:hover, .certificate:hover, .references:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 25px rgba(92, 26, 26, 0.4);
     border-color: rgba(92, 26, 26, 0.7);
@@ -99,7 +125,7 @@ nav ul li a:hover {
 .myself{
     line-height: 2.2;
     position:absolute;
-    top: 15%;
+    top: 20%;
     left: 15%;
     text-align: center;
     padding: 2rem;
@@ -111,14 +137,32 @@ nav ul li a:hover {
     text-align: left;
     position:absolute;
     left: 50%;
-    right: 15%;
-    top: 30%;
+    right: 8%;
+    top: 15%;
+    max-width: 1100px;
+    padding: 2rem;
+    border-radius: 10px;
+    line-height: 1.6;
+    transform: scale(1.05);
+}
+.education {
+    font-size: larger;
+    text-align: left;
+    position:absolute;
+    left: 50%;
+    right: 8%;
+    top: 63%;
     max-width: 1000px;
     padding: 2rem;
     border-radius: 10px;
     line-height: 1.6;
     transform: scale(1.05);
-
+}
+.education .school {
+    font-size: 0.98rem; /* veya medium */
+}
+.description2 {
+    font-size: 0.9rem; /* veya small */
 }
 
 .internship {
@@ -143,6 +187,7 @@ nav ul li a:hover {
     padding: 2rem;
     border-radius: 10px;
     line-height: 1.8;
+    
 }
 .employment .experience-info .company {
     font-size: 0.9rem; /* veya small */
@@ -161,16 +206,28 @@ nav ul li a:hover {
     text-align: left;
     position:absolute;
     top: 55%;
-    left:30%;
-    width: 700px;
+    left:2%;
+    right: 52%;
+    max-width: 1000px;
     padding: 2rem;
     border-radius: 10px;
     line-height: 2.2;
 }
+.references {
+    text-align: left;
+    position:absolute;
+    top: 55%;
+    max-width: 1000px;
+    left:52%;
+    right: 2%;
+    padding: 2rem;
+    border-radius: 10px;
+    line-height: 2.0;
+}
 
 .section {
     min-height: 100vh;
-    padding: 4rem 2rem;
+    padding:4rem 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -181,27 +238,98 @@ nav ul li a:hover {
     background-size: 200% 200%;
     animation: gradientFlow 5s ease infinite;
 }
+  
+
+/* @keyframes gradientFlow {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 0% 100%; }
+    100% { background-position: 0% 0%; }    
+}*/
+
+
+.myself, .about,.education {
+  animation:fade-out linear;
+  animation-timeline:view() ;  
+  animation-range: exit -150px;
+}
+ .internship, .employment{
+  animation:fade-in1 linear;
+  animation-timeline:view() ;  
+}
+.certificate, .references {
+    animation:fade-in2 linear;
+  animation-timeline:view() ;  
+}
+.project-menu{
+animation:fade-in3 linear;
+  animation-timeline:view() ;
+}
+.photo-viewer {
+    animation:fade-in5 linear;
+  animation-timeline:view() ;
+}
+.thumbnails{
+    animation:fade-in6 linear;
+  animation-timeline:view() ;
+}
+@keyframes fade-in1 {
+    0% { scale: 0.8; opacity: 0; }
+    70% { scale: 1.0; opacity: 1 ; }
+    100% { scale: 0.8; opacity: 0; }
+}
+@keyframes fade-in2 {
+    0% { scale: 0.8; opacity: 0; }
+    35% { scale: 1.0; opacity: 1 ; }
+    100% { scale: 0.8; opacity: 0; }
+}
+@keyframes fade-in3 {
+    0% { scale: 0.8; opacity: 0; }
+    60% { scale: 1.0; opacity: 1 ; }
+}
+@keyframes fade-in4 {
+    from { scale: 1.0; opacity: 1 ; }
+    to { scale: 0.8; opacity: 0; }
+}
+@keyframes fade-in5 {
+    0% { scale: 0.8; opacity: 0; }
+    50% { scale: 1.0; opacity: 1 ; }
+}
+@keyframes fade-in6 {
+    0% { scale: 0.8; opacity: 0; }
+    20% { scale: 1.0; opacity: 1 ; }
+}
+@keyframes fade-in {    
+    to { scale: 1; opacity: 1; }
+}
+@keyframes fade-out {
+    to { scale: .8; opacity: 0 ; }
+}
+
 @keyframes gradientFlow {
     0% { background-position: 0% 0%; }
     50% { background-position: 0% 100%; }
-    100% { background-position: 0% 0%; }
+    100% { background-position: 0% 0%; }    
 }
+
 #home {
-    background: linear-gradient(135deg, #000000, #2E0854, #5C1A1A);
+    background: linear-gradient(135deg, #1d1b1b, #2E0854, #5C1A1A);
     background-size: 100% 200%;
     background-repeat: no-repeat;
     animation: gradientFlow 5s ease infinite;
-}
-#about {
-    background: linear-gradient(135deg, #5C1A1A, #3A1A5C, #1A1A1A);
+  }
+  
+  #about {
+    background: linear-gradient(135deg, #2E0854, #5C1A1A, #1d1b1b);
+    background-size: 200% 200%;
+    background-repeat: no-repeat;
+    animation: gradientFlow 5s ease infinite;
+  }
+#projects {  
+    background: linear-gradient(135deg, #5C1A1A, #1d1b1b, #2E0854);
     background-size: 100% 200%;
     background-repeat: no-repeat;
     animation: gradientFlow 5s ease infinite;
-}
-#projects {  background: linear-gradient(135deg, #000000, #2E0854, #5C1A1A);
-    background-size: 100% 200%;
-    background-repeat: no-repeat;
-    animation: gradientFlow 5s ease infinite;}
+  }
 
 /* Scroll down indicator */
 .scroll-down {
@@ -233,6 +361,7 @@ nav ul li a:hover {
     object-fit: cover;
     border: 3px solid white;
     margin-bottom: 1rem;
+    animation: float 3s ease-in-out infinite;
 }
 .icons {
     width: 30px;
@@ -246,10 +375,38 @@ nav ul li a:hover {
     text-decoration: none;
 }
 /* Mobil cihazlar için (max-width: 1150px) */
-@media (max-width: 1150px) {
+@media (max-width: 1180px) {
+  
+   /* Navbar'daki dil butonu için stil */
+.nav-links .language-toggle button {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: white;
+  border-radius: 20px;
+  padding: 5px 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.nav-links .language-toggle button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: white;
+}
+
+.flag-icon {
+  width: 24px;
+  height: 16px;
+  border-radius: 2px;
+  object-fit: cover;
+}
+  
   /* Tüm bölümlerin mutlak konumunu kaldır ve blok düzenine geç */
   .myself, 
-  .about {
+  .about,
+  .education {
     position: static !important;
     width: 100% !important; /* Mobilde daha geniş alan kaplasın */
     margin: 20px auto !important; /* Üst-alt boşluk + otomatik merkezleme */
@@ -275,18 +432,18 @@ nav ul li a:hover {
 
   .internship, 
   .employment, 
-  .certificate
+  .certificate,
+  .references
   {
     position: static !important; /* Varsayılan akışa dön */
     width: 100% !important;
-    margin: 20px auto !important; /* Üst-alt boşluk + otomatik yatay hizalama */
+    margin: 10px auto !important; /* Üst-alt boşluk + otomatik yatay hizalama */
     left: 5% !important;
     right: 5% !important;
-    top: auto !important;
+    top: 5% !important;
     transform: none !important;
     font-size: small;
   }
-
   .container{
     display: flex;
     flex-direction: column;
@@ -299,7 +456,8 @@ nav ul li a:hover {
   /* Grid düzenini tek sütuna dönüştür */
   .internship > div,
   .employment > div,
-  .certificate > div {
+  .certificate > div,
+  .references > div {
     grid-template-columns: 1fr !important; /* Tek sütun */
   }
 
@@ -412,6 +570,11 @@ nav ul li a:hover {
   .modal-nav {
     flex-direction: column;
   }
+  @keyframes fade-in2 {
+    0% { scale: 0.8; opacity: 0; }
+    55% { scale: 1.0; opacity: 1 ; }
+    100% { scale: 0.8; opacity: 0; }
+}
 }
 
 

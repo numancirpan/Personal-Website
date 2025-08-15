@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    
     <!-- Menü -->
     <nav class="navbar">
   <div class="hamburger" id="hamburger">
@@ -20,9 +21,15 @@
     <div class="line"></div>
   </div>
   <ul class="nav-links" id="navLinks">
-    <li><a href="#home">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#projects">Projects</a></li>
+    <li><a class="home" data-translate="home" href="#home">Home</a></li>
+    <li><a class="aboutt" data-translate="aboutt" href="#about">About</a></li>
+    <li><a class="projects" data-translate="projects" href="#projects">Projects</a></li>
+    <li class="language-toggle">
+  <button id="langToggle">
+    <span id="langText">TR</span>
+    <img id="flagIcon" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MCA0MCI+CiAgPHBhdGggZmlsbD0iI2UzMGMzNSIgZD0iTTAgMGg2MHY0MEgwVjB6Ii8+CiAgPGNpcmNsZSBjeD0iMzAiIGN5PSIyMCIgcj0iOCIgZmlsbD0iI2ZmZiIvPgogIDxjaXJjbGUgY3g9IjMzIiBjeT0iMjAiIHI9IjciIGZpbGw9IiNlMzBjMzUiLz4KICA8c3RhciBwb2ludHM9IjMwLDI2IDI2LDIyIDI0LDI1IDI2LDI4IDMwLDI2IiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4=" alt="Türkçe" class="flag-icon">
+  </button>
+</li>
   </ul>
 </nav>
 
@@ -31,157 +38,183 @@
         <div class="container">
     <div class="myself">
         <img src="profil-foto.jpg" alt="Profil Fotoğrafım" class="profile-photo">
-        <h1 style="line-height: normal;">Numan Çırpan</h1>
-        <h3 style="line-height: 1.5;">Computer Engineering Student</h3><hr/> 
-        <img src="phone.png" alt="Phone" class="icons"><a href="tel:+905389511332">+90 538 951 1332</a><hr/> 
-        <img src="mail.png" alt="Mail" class="icons"><a href="mailto:numanccirpan@gmail.com">numanccirpan@gmail.com</a><hr/> 
-        <img src="in.png" alt="LinkedIn" class="icons"><a href="https://www.linkedin.com/in/numan-%C3%A7%C4%B1rpan-a26504359/" target="_blank" style="color: aliceblue;">Numan Çırpan</a></p><hr/>
-        <img src="github.png" alt="Github" class="icons"><a href="https://github.com/numancirpan" target="_blank" style="color: aliceblue;">numancirpan</a></p><hr/> 
+        <h1 style="line-height: normal;" data-translate="name">Numan Çırpan</h1>
+        <h3 style="line-height: 1.5;" data-translate="title">Computer Engineering Student</h3><hr/> 
+        <img src="phone.png" alt="Phone" class="icons"><a href="tel:+905389511332" data-translate="phone">+90 538 951 1332</a><hr/> 
+        <img src="mail.png" alt="Mail" class="icons"><a href="mailto:numanccirpan@gmail.com" data-translate="email">numanccirpan@gmail.com</a><hr/> 
+        <img src="in.png" alt="LinkedIn" class="icons"><a href="https://www.linkedin.com/in/numan-%C3%A7%C4%B1rpan-a26504359/" target="_blank" style="color: aliceblue;" data-translate="linkedin">Numan Çırpan</a></p><hr/>
+        <img src="github.png" alt="Github" class="icons"><a href="https://github.com/numancirpan" target="_blank" style="color: aliceblue;" data-translate="github">numancirpan</a></p><hr/> 
     </div>
     <div class="about">         
-        <h1>About Me</h1>  <hr/> 
-        <p>
+        <h1 data-translate="about_title">About Me</h1>  <hr/> 
+        <p data-translate="about_text">
         I am a 22-year-old Computer Engineering student from Izmit, currently living in Düzce. 
         I have experience in database management, UI development, and web programming. 
         Through internships and various projects, I have actively enhanced my skills and knowledge in these areas. 
         I aim to further expand my expertise by contributing to new and challenging projects.</p>                                   
     </div>  
+    <div class="education">
+        <h1 data-translate="education_title">Education</h1><hr/>
+        <p><strong data-translate="education1_date">2021 - Present</strong></p>
+        <p class="school" data-translate="education1_school">Düzce University / Computer Engineering</p>
+        <p class="description2" data-translate="education_description">Since the education language is %100 English, I took English preparatory training in my first year.
+        <hr/>
+        <strong data-translate="education2_date">2016 - 2020</strong>
+        <p class="school" data-translate="education2_school">Necip Fazil Kisakurek High School</p>
+        <hr/>
+    </div>   
     </section>
 
-    <!-- Hakkımda -->
+
+     <!-- Hakkımda -->
     <section id="about" class="section">
         <div class="container">
             <div class="internship">
-            <h1>Internships:</h1><hr/>  
+            <h1 data-translate="internships_title">Internships:</h1><hr/>  
                 <div style="display: grid; grid-template-columns: 1fr 1fr;">       
                     <div class="experience-date">
-                    <p>July 2025 - August 2025</p> 
+                    <p data-translate="internship1_date">July 2025 - August 2025</p> 
                     </div>
                     <div class="experience-info" style="position:relative; left: 10%; line-height: 1.6;">
-                    <strong>Intern</strong>
-                    <p class="company">Yazaki Systems Technologies / Bursa</p>
-                    <p class="description">Developed software application and web programming projects using programming languages and tools. 
+                    <strong data-translate="internship1_position">Intern</strong>
+                    <p class="company" data-translate="internship1_company">Yazaki Systems Technologies / Bursa</p>
+                    <p class="description" data-translate="internship1_description">Developed software application and web programming projects using programming languages and tools. 
                                             Also assisted senior engineers in the IT department with server and other tasks.</p>
                     </div>
                 </div>                
                  <hr/>   
                 <div style="display: grid; grid-template-columns: 1fr 1fr;">       
                     <div class="experience-date">
-                    <p>June 2020 - July 2020</p> 
+                    <p data-translate="internship2_date">June 2020 - July 2020</p> 
                     </div>
                     <div class="experience-info" style="position:relative; left: 10%; line-height: 1.6;">
-                    <strong>Intern</strong>
-                    <p class="company">ProSystems Teknopark / Kocaeli</p>
-                    <p class="description">1-month summer internship in the Software Department.</p>
+                    <strong data-translate="internship2_position">Intern</strong>
+                    <p class="company" data-translate="internship2_company">ProSystems Teknopark / Kocaeli</p>
+                    <p class="description" data-translate="internship2_description">1-month summer internship in the Software Department.</p>
                     </div>
                 </div>
                 <hr/>
             </div>
             <div class="employment">
-            <h1>Employment:</h1><hr/>
+            <h1 data-translate="employment_title">Employment:</h1><hr/>
                 <div style="display: grid; grid-template-columns: 1fr 1fr;">       
                     <div class="experience-date">
-                    <p>April 2025 - Present</p> 
+                    <p data-translate="employment1_date">April 2025 - Present</p> 
                     </div>
                     <div class="experience-info" style="position:relative; left: 10%; line-height: 1.6;">
-                    <strong>Barista</strong>
-                    <p class="company">Mountain Coffee Company / Duzce</p>
-                    <p class="description">Took a break from my job here during my internship at Yazaki and started working again.</p>
+                    <strong data-translate="employment1_position">Barista</strong>
+                    <p class="company" data-translate="employment1_company">Mountain Coffee Company / Duzce</p>
+                    <p class="description" data-translate="employment1_description">Took a break from my job here during my internship at Yazaki and started working again.</p>
                     </div>
                 </div>
                 <hr/>
                 <div style="display: grid; grid-template-columns: 1fr 1fr;">       
                     <div class="experience-date">
-                    <p>2024 - 2025</p> 
+                    <p data-translate="employment2_date">2024 - 2025</p> 
                     </div>
                     <div class="experience-info" style="position:relative; left: 10%; line-height: 1.6;">
-                    <strong>Chauffeur</strong>
-                    <p class="company">Ford Gölcük Campus / Kocaeli</p>
+                    <strong data-translate="employment2_position">Chauffeur</strong>
+                    <p class="company" data-translate="employment2_company">Ford Gölcük Campus / Kocaeli</p>
                     </div>
                 </div>  
                 <hr/>
                 <div style="display: grid; grid-template-columns: 1fr 1fr;">       
                     <div class="experience-date">
-                    <p>2023 - 2025</p> 
+                    <p data-translate="employment3_date">2023 - 2025</p> 
                     </div>
                     <div class="experience-info" style="position:relative; left: 10%; line-height: 1.6;">
-                    <strong>Chauffeur</strong>
-                    <p class="company">Efesan Port Logistics / Kocaeli</p>
+                    <strong data-translate="employment3_position">Chauffeur</strong>
+                    <p class="company" data-translate="employment3_company">Efesan Port Logistics / Kocaeli</p>
                     </div>
                 </div>  
                 <hr/>
             </div>          
             <div class="certificate">
-            <h1>Certificates:</h1><hr/>  
+            <h1 data-translate="certificates_title">Certificates:</h1><hr/>  
                 <div style="display: grid; grid-template-columns: 1fr 1fr;">       
                     <div class="experience-date">
-                    <p>2025</p> 
+                    <p data-translate="certificate1_year">2025</p> 
                     </div>
                     <div class="experience-info" style="position:relative; left: 10%; line-height: 1.6;">
-                    <strong>Web Programming with MVC</strong>
+                    <strong data-translate="certificate1_name">Web Programming with MVC</strong>
                     </div>
                 </div>
                 <hr/>   
                 <div style="display: grid; grid-template-columns: 1fr 1fr;">       
                     <div class="experience-date">
-                    <p>2024</p> 
+                    <p data-translate="certificate2_year">2024</p> 
                     </div>
                         <div class="experience-info" style="position:relative; left: 10%; line-height: 1.6;">
-                        <strong>C#</strong>
+                        <strong data-translate="certificate2_name">C#</strong>
                         </div>
                     </div>
                     <hr/>
                     <div style="display: grid; grid-template-columns: 1fr 1fr;">       
                         <div class="experience-date">
-                        <p>2024</p> 
+                        <p data-translate="certificate3_year">2024</p> 
                         </div>
                         <div class="experience-info" style="position:relative; left: 10%; line-height: 1.6;">
-                        <strong>Matlab Onramp</strong>
+                        <strong data-translate="certificate3_name">Matlab Onramp</strong>
                         </div>
                     </div>
                     <hr/>
                     <div style="display: grid; grid-template-columns: 1fr 1fr;">       
                         <div class="experience-date">
-                        <p>2024</p> 
+                        <p data-translate="certificate4_year">2024</p> 
                         </div>
                         <div class="experience-info" style="position:relative; left: 10%; line-height: 1.6;">
-                        <strong>Signal Processing Onramp</strong>
+                        <strong data-translate="certificate4_name">Signal Processing Onramp</strong>
                         </div>
                     </div>
                     <hr/>
                     <div style="display: grid; grid-template-columns: 1fr 1fr;">       
                         <div class="experience-date">
-                        <p>2024</p> 
+                        <p data-translate="certificate5_year">2024</p> 
                         </div>
                         <div class="experience-info" style="position:relative; left: 10%; line-height: 1.6;">
-                        <strong>Machine Learning Onramp</strong>
+                        <strong data-translate="certificate5_name">Machine Learning Onramp</strong>
                         </div>
                     </div>
                     <hr/>
-                </div>
+                
+            </div>
+            <div class="references">
+            <h1 data-translate="references_title">References:</h1><hr/>  
+                <div class="reference1_info">
+                <strong data-translate="reference1_name">Nurullah Celik (IT Team Leader)</strong>
+                <p class="company" data-translate="reference1_company">Yazaki Systems Technologies / Bursa</p>
+                <p class="contact" >+90 (530) 303 95 88, Nurullah.Celik@yazaki-europe.com</p>
+                </div>                           
+                <hr/>   
+                <div class="reference2_info">
+                <strong data-translate="reference2_name">Emre Memisoglu (IT Help Desk Support)</strong>
+                <p class="company" data-translate="reference1_company">Yazaki Systems Technologies / Bursa</p>
+                <p class="contact" >+90 (549) 641 55 81, Emre.Memisoglu@yazaki-europe.com</p>
+                </div> 
+                <hr/>
             </div>
         </div>        
     </section>
 
-    <!-- Projeler -->
+     <!-- Projeler -->
     <section id="projects" class="section">
         <div class="container">
             <!-- Proje Seçim Menüsü -->
             <div class="project-menu">
                 <div> 
-                    <div class="project-tab active" data-project="inventory-mvc">Inventory Tracking System (MVC)</div>
+                    <div class="project-tab active" data-project="inventory-mvc" data-translate="project1">Inventory Tracking System (MVC)</div>
                     <a href="https://github.com/numancirpan/Inventory_Tracking_MVC" target="_blank" style="color: aliceblue;"><img src="github.png" alt="Github" class="icons"></a>
                 </div class="project-item">
                 <div>
-                    <div class="project-tab " data-project="inventory-forms">Inventory Tracking System (Forms)</div>
+                    <div class="project-tab " data-project="inventory-forms" data-translate="project2">Inventory Tracking System (Forms)</div>
                     <a href="https://github.com/numancirpan/Inventory_Tracking_Forms" target="_blank" style="color: aliceblue;"><img src="github.png" alt="Github" class="icons"></a>
                 </div>
                 <div class="project-item">
-                    <div class="project-tab " data-project="cargo-tracking">Cargo Tracking System (MVC)</div>
+                    <div class="project-tab " data-project="cargo-tracking" data-translate="project3">Cargo Tracking System (MVC)</div>
                     <a href="https://github.com/numancirpan/Cargo-Tracking-Website" target="_blank" style="color: aliceblue;"><img src="github.png" alt="Github" class="icons"></a>
                 </div> 
                 <div class="project-item">
-                    <div class="project-tab " data-project="vehicle-management">Vehicle Management System (Forms)</div>
+                    <div class="project-tab " data-project="vehicle-management" data-translate="project4">Vehicle Management System (Forms)</div>
                     <a href="https://github.com/numancirpan/Vehicle-Management-System" target="_blank" style="color: aliceblue;"><img src="github.png" alt="Github" class="icons"></a>
                 </div>    
             </div>
@@ -209,42 +242,47 @@
   <div class="caption"></div>
 </div>
     </section>
-    
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <script>
-        let lastScrollTop = 0;
-        const navbar = document.querySelector('.navbar');
-        const navHeight = navbar.offsetHeight;
-        const homeSection = document.getElementById('home');
+ let lastScrollTop = 0;
+            const navbar = document.querySelector('.navbar');
+            const navHeight = navbar.offsetHeight;
+            const homeSection = document.getElementById('home');
 
-        window.addEventListener('scroll', function() {
-            // Hamburger menüsü açıksa navigasyonu gizleme
-            const navLinks = document.getElementById('navLinks');
-            if (navLinks.classList.contains('active')) {
-                return;
-            }
+            window.addEventListener('scroll', function() {
+                // Hamburger menüsü açıksa navigasyonu gizleme
+                const navLinks = document.getElementById('navLinks');
+                if (navLinks.classList.contains('active')) {
+                    return;
+                }
 
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            const homeBottom = homeSection.offsetTop + homeSection.offsetHeight;
-            
-            // Yukarı kaydırma ve sayfanın en üstünde olma kontrolü
-            if (scrollTop <= navHeight || scrollTop < lastScrollTop) {
-                // Yukarı kaydırılıyor veya sayfanın en üstünde
-                navbar.classList.remove('hidden');
-                if (scrollTop > navHeight) {
-                    navbar.classList.add('scrolled');
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                const homeBottom = homeSection.offsetTop + homeSection.offsetHeight;
+                
+                // Yukarı kaydırma ve sayfanın en üstünde olma kontrolü
+                if (scrollTop <= navHeight || scrollTop < lastScrollTop) {
+                    // Yukarı kaydırılıyor veya sayfanın en üstünde
+                    navbar.classList.remove('hidden');
+                    if (scrollTop > navHeight) {
+                        navbar.classList.add('scrolled');
+                    } else {
+                        navbar.classList.remove('scrolled');
+                    }
                 } else {
-                    navbar.classList.remove('scrolled');
+                    // Aşağı kaydırılıyor ve home bölümünden çıkıldığında
+                    if (scrollTop > homeBottom - navHeight) {
+                        navbar.classList.add('hidden');
+                    }
                 }
-            } else {
-                // Aşağı kaydırılıyor ve home bölümünden çıkıldığında
-                if (scrollTop > homeBottom - navHeight) {
-                    navbar.classList.add('hidden');
-                }
-            }
-            
-            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-        }, { passive: true });
+                
+                lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+            }, { passive: true });
+
+    </script>
+<!--
+    <script>
+         
+          
   document.addEventListener('DOMContentLoaded', () => {
     const sections = document.querySelectorAll('.section');
     let currentSection = 0;
@@ -341,7 +379,8 @@ window.addEventListener('wheel', (e) => {
     
     // Mevcut scroll kodu
 });
-
+</script>   -->
+<script>
 
 //hamburger 
 document.getElementById('hamburger').addEventListener('click', function() {
@@ -547,6 +586,184 @@ document.addEventListener('keydown', function(e) {
     }
   }
 });
+
+ const translations = {
+            en: {
+                // Menü
+                home: "Home",
+                aboutt: "About",
+                projects: "Projects",
+                
+                // Ana Sayfa
+                name: "Numan Çırpan",
+                title: "Computer Engineering Student",
+                phone: "+90 538 951 1332",
+                email: "numanccirpan@gmail.com",
+                linkedin: "Numan Çırpan",
+                github: "numancirpan",
+                about_title: "About Me",
+                about_text: "I am a 22-year-old Computer Engineering student from Izmit, currently living in Düzce. I have experience in database management, UI development, and web programming. Through internships and various projects, I have actively enhanced my skills and knowledge in these areas. I aim to further expand my expertise by contributing to new and challenging projects.",
+                education_title: "Education",
+                education1_date: "2021 - Present",
+                education1_school: "Düzce University / Computer Engineering",
+                education_description: "Since the education language is %100 English, I took English preparatory training in my first year.",
+                education2_date: "2016 - 2020",
+                education2_school: "Necip Fazil Kisakurek High School",
+                
+                // Hakkımda
+                internships_title: "Internships:",
+                internship1_date: "July 2025 - August 2025",
+                internship1_position: "Intern",
+                internship1_company: "Yazaki Systems Technologies / Bursa",
+                internship1_description: "Developed software application and web programming projects using programming languages and tools. Also assisted senior engineers in the IT department with server and other tasks.",
+                internship2_date: "June 2020 - July 2020",
+                internship2_position: "Intern",
+                internship2_company: "ProSystems Teknopark / Kocaeli",
+                internship2_description: "1-month summer internship in the Software Department.",
+                employment_title: "Employment:",
+                employment1_date: "April 2025 - Present",
+                employment1_position: "Barista",
+                employment1_company: "Mountain Coffee Company / Duzce",
+                employment1_description: "Took a break from my job here during my internship at Yazaki and started working again.",
+                employment2_date: "2024 - 2025",
+                employment2_position: "Chauffeur",
+                employment2_company: "Ford Gölcük Campus / Kocaeli",
+                employment3_date: "2023 - 2025",
+                employment3_position: "Chauffeur",
+                employment3_company: "Efesan Port Logistics / Kocaeli",
+                certificates_title: "Certificates:",
+                certificate1_year: "2025",
+                certificate1_name: "Web Programming with MVC",
+                certificate2_year: "2024",
+                certificate2_name: "C#",
+                certificate3_year: "2024",
+                certificate3_name: "Matlab Onramp",
+                certificate4_year: "2024",
+                certificate4_name: "Signal Processing Onramp",
+                certificate5_year: "2024",
+                certificate5_name: "Machine Learning Onramp",
+                references_title: "References:",
+                reference1_name: "Nurullah Celik (IT Team Leader)",
+                reference2_name:"Emre Memisoglu (IT Help Desk Support)",
+                
+                
+                // Projeler
+                project1: "Inventory Tracking System (MVC)",
+                project2: "Inventory Tracking System (Forms)",
+                project3: "Cargo Tracking System (MVC)",
+                project4: "Vehicle Management System (Forms)"
+            },
+            tr: {
+                // Menü
+                home: "Ana Sayfa",
+                aboutt: "Hakkımda",
+                projects: "Projeler",
+                
+                // Ana Sayfa
+                name: "Numan Çırpan",
+                title: "Bilgisayar Mühendisliği Öğrencisi",
+                phone: "+90 538 951 1332",
+                email: "numanccirpan@gmail.com",
+                linkedin: "Numan Çırpan",
+                github: "numancirpan",
+                about_title: "Hakkımda",
+                about_text: "22 yaşında, İzmit doğumlu, şu anda Düzce'de yaşayan bir Bilgisayar Mühendisliği öğrencisiyim. Veritabanı yönetimi, kullanıcı arayüzü geliştirme ve web programlama konularında deneyimim bulunmaktadır. Stajlar ve çeşitli projeler aracılığıyla bu alanlardaki beceri ve bilgilerimi aktif olarak geliştirdim. Yeni ve zorlu projelere katkıda bulunarak uzmanlığımı daha da genişletmeyi hedefliyorum.",
+                education_title: "Eğitim",
+                education1_date: "2021 - Günümüz",
+                education1_school: "Düzce Üniversitesi / Bilgisayar Mühendisliği",
+                education_description: "Eğitim dili %100 İngilizce olduğu için ilk yılımda İngilizce hazırlık eğitimi aldım.",
+                education2_date: "2016 - 2020",
+                education2_school: "Necip Fazıl Kısakürek Proje Lisesi",                
+                // Hakkımda
+                internships_title: "Stajlar:",
+                internship1_date: "Temmuz 2025 - Ağustos 2025",
+                internship1_position: "Stajyer",
+                internship1_description: "Programlama dilleri ve araçları kullanarak yazılım uygulaması ve web programlama projeleri geliştirdim. Ayrıca IT departmanındaki kıdemli mühendislere sunucu ve diğer görevlerde yardımcı oldum.",
+                internship2_date: "Haziran 2020 - Temmuz 2020",
+                internship2_position: "Stajyer",
+                internship2_company: "ProSystems Teknopark / Kocaeli",
+                internship2_description: "Yazılım Departmanında 1 aylık yaz stajı.",
+                employment_title: "İş Deneyimi:",
+                employment1_date: "Nisan 2025 - Günümüz",
+                employment1_position: "Barista",
+                employment1_company: "Mountain Coffee Company / Düzce",
+                employment1_description: "Yazaki'deki stajım sırasında buradaki işime ara verdim ve staj sonrası tekrar çalışmaya başladım.",
+                employment2_date: "2024 - 2025",
+                employment2_position: "Özel Şoför",
+                employment2_company: "Ford Gölcük Yerleşkesi / Kocaeli",
+                employment3_date: "2023 - 2025",
+                employment3_position: "Özel Şoför",
+                employment3_company: "Efesan Limanı Lojistik / Kocaeli",
+                certificates_title: "Sertifikalar:",
+                certificate1_year: "2025",
+                certificate1_name: "MVC ile Web Programlama",
+                certificate2_year: "2024",
+                certificate2_name: "C#",
+                certificate3_year: "2024",
+                certificate3_name: "Matlab Onramp",
+                certificate4_year: "2024",
+                certificate4_name: "Sinyal İşleme Onramp",
+                certificate5_year: "2024",
+                certificate5_name: "Makine Öğrenmesi Onramp",
+                references_title: "Referanslar:",
+                reference1_name: "Nurullah Çelik (IT Takım Lideri)",
+                reference2_name: "Emre Memişoğlu (IT Yardım Masası Sorumlusu)",
+                
+                // Projeler
+                project1: "Envanter Takip Sistemi (MVC)",
+                project2: "Envanter Takip Sistemi (Forms)",
+                project3: "Kargo Takip Sistemi (MVC)",
+                project4: "Araç Yönetim Sistemi (Forms)"
+            }
+        };
+
+        // Dil değiştirme fonksiyonu
+        function setLanguage(lang) {
+            // Tüm çeviri elemanlarını seç
+            const elements = document.querySelectorAll('[data-translate]');
+            
+            // Her eleman için çeviri yap
+            elements.forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+            
+           const flagIcon = document.getElementById('flagIcon');
+    if (lang === 'en') {
+        document.getElementById('langText').textContent = 'EN';
+        flagIcon.src = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDYwIDMwIj4KPHJlY3Qgd2lkdGg9IjYwIiBoZWlnaHQ9IjMwIiBmaWxsPSIjMDEyMTY5Ii8+CjxwYXRoIGQ9Ik0wLDAgTDYwLDMwIE02MCwwIEwwLDMwIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iNiIvPgo8cGF0aCBkPSJNM CwwIEw2MCwzMCBNNjAsMCBMMCwzMCIgc3Ryb2tlPSIjQzgxMDJFIiBzdHJva2Utd2lkdGg9IjQiIHN0cm9rZS1saW5lY2FwPSJzcXVhcmUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAsMSkiLz4KPHBhdGggZD0iTTMwLDAgVjMwIE0wLDE1IEg2MCIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjEwIi8+CjxwYXRoIGQ9Ik0zMCwwIFYzMCBNMCwxNSBINjAiIHN0cm9rZT0iI0M4MTAyRSIgc3Ryb2tlLXdpZHRoPSI2Ii8+Cjwvc3ZnPg==';
+        flagIcon.alt = 'English';
+    } else {
+        document.getElementById('langText').textContent = 'TR';
+        flagIcon.src = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MCA0MCI+CiAgPHBhdGggZmlsbD0iI2UzMGMzNSIgZD0iTTAgMGg2MHY0MEgwVjB6Ii8+CiAgPGNpcmNsZSBjeD0iMzAiIGN5PSIyMCIgcj0iOCIgZmlsbD0iI2ZmZiIvPgogIDxjaXJjbGUgY3g9IjMzIiBjeT0iMjAiIHI9IjciIGZpbGw9IiNlMzBjMzUiLz4KICA8c3RhciBwb2ludHM9IjMwLDI2IDI2LDIyIDI0LDI1IDI2LDI4IDMwLDI2IiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4=';
+        flagIcon.alt = 'Türkçe';
+    }
+            
+            // Dil tercihini localStorage'a kaydet
+            localStorage.setItem('language', lang);
+            
+            // Sayfa başlığını güncelle
+            document.title = lang === 'en' ? 'Numan Çırpan - Portfolio' : 'Numan Çırpan - Portföy';
+        }
+
+        // Sayfa yüklendiğinde dil ayarlarını yap
+        document.addEventListener('DOMContentLoaded', function() {
+            // Kayıtlı dil tercihini kontrol et
+            const savedLang = localStorage.getItem('language') || 'en';
+            
+            // Dil ayarlarını uygula
+            setLanguage(savedLang);
+            
+            // Dil değiştirme butonu için event listener
+            document.getElementById('langToggle').addEventListener('click', function() {
+                const currentLang = localStorage.getItem('language') || 'en';
+                const newLang = currentLang === 'en' ? 'tr' : 'en';
+                setLanguage(newLang);
+            });
+        });     
     </script>  
+
 </body>
 </html>
